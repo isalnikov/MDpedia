@@ -1,0 +1,31 @@
+{
+  "nodes": {
+    "quantum_entanglement": {
+      "file": "content/concepts/physics/quantum_entanglement.md",
+      "title": "Квантовая запутанность",
+      "deps": ["quantum_superposition"],
+      "skills_available": ["execute_simulation"]
+    },
+    "python_memory_debug": {
+      "file": "content/skills/python_memory_debug.skill.md",
+      "title": "Python Memory Debug",
+      "deps": ["python_gc", "memory_management"],
+      "type": "skill"
+    }
+  },
+  "edges": [
+    {
+      "from": "quantum_entanglement",
+      "to": "quantum_superposition",
+      "relation": "требует"
+    },
+    {
+      "from": "python_memory_debug",
+      "to": "python_gc",
+      "relation": "требует"
+    }
+  ],
+  "agent_flow": [
+    "Если задача = 'найти утечку памяти в Python', маршрут: memory_management -> python_gc -> skill: python_memory_debug"
+  ]
+}

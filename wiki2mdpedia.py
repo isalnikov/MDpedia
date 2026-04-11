@@ -39,7 +39,8 @@ except ImportError:
 # Конфигурация по умолчанию
 # ──────────────────────────────────────────────────────────────
 
-TOP_10_URLS = [
+TOP_20_URLS = [
+    # ── Топ-10 общие (оригинальные) ──
     "https://ru.wikipedia.org/wiki/Python",
     "https://ru.wikipedia.org/wiki/Искусственный_интеллект",
     "https://ru.wikipedia.org/wiki/Машинное_обучение",
@@ -50,6 +51,17 @@ TOP_10_URLS = [
     "https://ru.wikipedia.org/wiki/Блокчейн",
     "https://ru.wikipedia.org/wiki/Интернет_вещей",
     "https://ru.wikipedia.org/wiki/Нейронная_сеть",
+    # ── Топ-10 Java 25+ / Spring Boot 4+ ──
+    "https://ru.wikipedia.org/wiki/Java",
+    "https://ru.wikipedia.org/wiki/Java_Virtual_Machine",
+    "https://ru.wikipedia.org/wiki/Spring_Framework",
+    "https://ru.wikipedia.org/wiki/Spring_Boot",
+    "https://ru.wikipedia.org/wiki/Maven",
+    "https://ru.wikipedia.org/wiki/Gradle",
+    "https://ru.wikipedia.org/wiki/Jakarta_EE",
+    "https://ru.wikipedia.org/wiki/Hibernate",
+    "https://ru.wikipedia.org/wiki/JUnit",
+    "https://ru.wikipedia.org/wiki/Микросервисы",
 ]
 
 OUTPUT_DIR = "aimdpedia"
@@ -305,7 +317,7 @@ def main():
     urls = (
         [u.strip() for u in args.urls.split(",") if u.strip()]
         if args.urls
-        else TOP_10_URLS
+        else TOP_20_URLS
     )
 
     # Output dir

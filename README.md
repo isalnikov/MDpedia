@@ -57,6 +57,12 @@ npm run build-graph
 - **Enterprise** — приватная вики компании с графом зависимостей проектов
 - **Обучение** — навигация от beginner к advanced через граф prerequisites
 
+## 🌍 Языки
+
+- 🇷🇺 **Русский** (этот файл)
+- 🇬🇧 [English](README_EN.md)
+- 🇨🇳 [中文](README_ZH.md)
+
 ## 🤝 Contributing
 
 Contributing guidelines в разработке. Следите за обновлениями.

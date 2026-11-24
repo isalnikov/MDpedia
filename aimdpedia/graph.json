@@ -1,0 +1,213 @@
+{
+  "nodes": {
+    "Python": {
+      "file": "Python.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Python",
+      "prerequisites": ["Машинное_обучение", "Нейронная_сеть"],
+      "weight": 1.0
+    },
+    "Искусственный_интеллект": {
+      "file": "Искусственный_интеллект.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Искусственный_интеллект",
+      "prerequisites": ["Машинное_обучение", "Нейронная_сеть"],
+      "weight": 1.0
+    },
+    "Машинное_обучение": {
+      "file": "Машинное_обучение.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Машинное_обучение",
+      "prerequisites": ["Искусственный_интеллект", "Нейронная_сеть"],
+      "weight": 1.0
+    },
+    "Квантовая_запутанность": {
+      "file": "Квантовая_запутанность.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Квантовая_запутанность",
+      "prerequisites": ["Квантовая_суперпозиция", "Квантовая_механика"],
+      "weight": 1.0
+    },
+    "Теория_относительности": {
+      "file": "Теория_относительности.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Теория_относительности",
+      "prerequisites": ["Классическая_механика"],
+      "weight": 1.0
+    },
+    "ДНК": {
+      "file": "ДНК.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/ДНК",
+      "prerequisites": ["Клетка", "Эволюция"],
+      "weight": 1.0
+    },
+    "Чёрная_дыра": {
+      "file": "Чёрная_дыра.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Чёрная_дыра",
+      "prerequisites": ["Теория_относительности", "Гравитация"],
+      "weight": 1.0
+    },
+    "Блокчейн": {
+      "file": "Блокчейн.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Блокчейн",
+      "prerequisites": ["Криптография", "Распределённые_системы"],
+      "weight": 1.0
+    },
+    "Интернет_вещей": {
+      "file": "Интернет_вещей.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Интернет_вещей",
+      "prerequisites": ["Сеть", "Протокол"],
+      "weight": 1.0
+    },
+    "Нейронная_сеть": {
+      "file": "Нейронная_сеть.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Нейронная_сеть",
+      "prerequisites": ["Машинное_обучение", "Линейная_алгебра"],
+      "weight": 1.0
+    },
+    "Java": {
+      "file": "Java.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Java",
+      "prerequisites": ["ООП", "Java_Virtual_Machine"],
+      "weight": 1.0
+    },
+    "Java_Virtual_Machine": {
+      "file": "Java_Virtual_Machine.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Java_Virtual_Machine",
+      "prerequisites": ["Java"],
+      "weight": 1.0
+    },
+    "Spring_Framework": {
+      "file": "Spring_Framework.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Spring_Framework",
+      "prerequisites": ["Java", "Java_Virtual_Machine"],
+      "weight": 1.0
+    },
+    "Spring_Boot": {
+      "file": "Spring_Boot.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Spring_Boot",
+      "prerequisites": ["Java", "Spring_Framework"],
+      "weight": 1.0
+    },
+    "Maven": {
+      "file": "Maven.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Maven",
+      "prerequisites": ["Java"],
+      "weight": 1.0
+    },
+    "Gradle": {
+      "file": "Gradle.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Gradle",
+      "prerequisites": ["Java"],
+      "weight": 1.0
+    },
+    "Jakarta_EE": {
+      "file": "Jakarta_EE.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Jakarta_EE",
+      "prerequisites": ["Java", "Servlet"],
+      "weight": 1.0
+    },
+    "Hibernate": {
+      "file": "Hibernate.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Hibernate",
+      "prerequisites": ["Java", "JPA", "SQL"],
+      "weight": 1.0
+    },
+    "JUnit": {
+      "file": "JUnit.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/JUnit",
+      "prerequisites": ["Java"],
+      "weight": 1.0
+    },
+    "Микросервисы": {
+      "file": "Микросервисы.ai.md",
+      "url": "https://ru.wikipedia.org/wiki/Микросервисы",
+      "prerequisites": ["REST", "Распределённые_системы"],
+      "weight": 1.0
+    }
+  },
+  "edges": [
+    {"from": "Python", "to": "Машинное_обучение", "relation": "DEPENDS_ON"},
+    {"from": "Python", "to": "Нейронная_сеть", "relation": "DEPENDS_ON"},
+    {"from": "Искусственный_интеллект", "to": "Машинное_обучение", "relation": "DEPENDS_ON"},
+    {"from": "Искусственный_интеллект", "to": "Нейронная_сеть", "relation": "DEPENDS_ON"},
+    {"from": "Машинное_обучение", "to": "Искусственный_интеллект", "relation": "DEPENDS_ON"},
+    {"from": "Машинное_обучение", "to": "Нейронная_сеть", "relation": "DEPENDS_ON"},
+    {"from": "Нейронная_сеть", "to": "Машинное_обучение", "relation": "DEPENDS_ON"},
+    {"from": "Квантовая_запутанность", "to": "Квантовая_суперпозиция", "relation": "DEPENDS_ON"},
+    {"from": "Квантовая_запутанность", "to": "Квантовая_механика", "relation": "DEPENDS_ON"},
+    {"from": "Теория_относительности", "to": "Классическая_механика", "relation": "DEPENDS_ON"},
+    {"from": "Чёрная_дыра", "to": "Теория_относительности", "relation": "DEPENDS_ON"},
+    {"from": "Чёрная_дыра", "to": "Гравитация", "relation": "DEPENDS_ON"},
+    {"from": "Блокчейн", "to": "Криптография", "relation": "DEPENDS_ON"},
+    {"from": "Блокчейн", "to": "Распределённые_системы", "relation": "DEPENDS_ON"},
+    {"from": "Интернет_вещей", "to": "Сеть", "relation": "DEPENDS_ON"},
+    {"from": "Интернет_вещей", "to": "Протокол", "relation": "DEPENDS_ON"},
+    {"from": "ДНК", "to": "Клетка", "relation": "DEPENDS_ON"},
+    {"from": "ДНК", "to": "Эволюция", "relation": "DEPENDS_ON"},
+    {"from": "Java", "to": "ООП", "relation": "DEPENDS_ON"},
+    {"from": "Java", "to": "Java_Virtual_Machine", "relation": "DEPENDS_ON"},
+    {"from": "Java_Virtual_Machine", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Spring_Framework", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Spring_Framework", "to": "Java_Virtual_Machine", "relation": "DEPENDS_ON"},
+    {"from": "Spring_Boot", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Spring_Boot", "to": "Spring_Framework", "relation": "DEPENDS_ON"},
+    {"from": "Maven", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Gradle", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Jakarta_EE", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Hibernate", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "JUnit", "to": "Java", "relation": "DEPENDS_ON"},
+    {"from": "Микросервисы", "to": "REST", "relation": "DEPENDS_ON"},
+    {"from": "Микросервисы", "to": "Распределённые_системы", "relation": "DEPENDS_ON"},
+    {"from": "Микросервисы", "to": "Spring_Boot", "relation": "USES"},
+    {"from": "Spring_Boot", "to": "Микросервисы", "relation": "ENABLES"},
+    {"from": "Hibernate", "to": "Spring_Framework", "relation": "INTEGRATES_WITH"},
+    {"from": "JUnit", "to": "Spring_Boot", "relation": "TESTS"},
+    {"from": "Maven", "to": "Spring_Boot", "relation": "BUILDS"},
+    {"from": "Gradle", "to": "Spring_Boot", "relation": "BUILDS"}
+  ],
+  "entry_points": {
+    "query_patterns": {
+      "python": "Python",
+      "искусственный интеллект": "Искусственный_интеллект",
+      "ии": "Искусственный_интеллект",
+      "ai": "Искусственный_интеллект",
+      "машинное обучение": "Машинное_обучение",
+      "ml": "Машинное_обучение",
+      "квантовая запутанность": "Квантовая_запутанность",
+      "теория относительности": "Теория_относительности",
+      "днк": "ДНК",
+      "чёрная дыра": "Чёрная_дыра",
+      "блокчейн": "Блокчейн",
+      "blockchain": "Блокчейн",
+      "интернет вещей": "Интернет_вещей",
+      "iot": "Интернет_вещей",
+      "нейронная сеть": "Нейронная_сеть",
+      "нейросеть": "Нейронная_сеть",
+      "java": "Java",
+      "jvm": "Java_Virtual_Machine",
+      "java virtual machine": "Java_Virtual_Machine",
+      "spring": "Spring_Framework",
+      "spring framework": "Spring_Framework",
+      "spring boot": "Spring_Boot",
+      "maven": "Maven",
+      "gradle": "Gradle",
+      "jakarta ee": "Jakarta_EE",
+      "java ee": "Jakarta_EE",
+      "hibernate": "Hibernate",
+      "jpa": "Hibernate",
+      "junit": "JUnit",
+      "тестирование": "JUnit",
+      "микросервисы": "Микросервисы",
+      "microservices": "Микросервисы"
+    }
+  },
+  "stats": {
+    "total_articles": 20,
+    "total_edges": 38,
+    "source": "ru.wikipedia.org",
+    "generated_by": "MDpedia MVP",
+    "date": "2026-04-11",
+    "categories": {
+      "science": ["Квантовая_запутанность", "Теория_относительности", "ДНК", "Чёрная_дыра"],
+      "ai_ml": ["Искусственный_интеллект", "Машинное_обучение", "Нейронная_сеть"],
+      "general_tech": ["Python", "Блокчейн", "Интернет_вещей"],
+      "java_ecosystem": ["Java", "Java_Virtual_Machine", "Spring_Framework", "Spring_Boot", "Maven", "Gradle", "Jakarta_EE", "Hibernate", "JUnit", "Микросервисы"]
+    }
+  }
+}

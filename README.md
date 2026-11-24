@@ -1,43 +1,42 @@
-# Pattern library workspace
+# MDpedia — pattern library & agent corpus
 
-Книги в PDF конвертированы в Markdown; из них собрана структурированная библиотека и скилл для проектирования.
+> **AI-first knowledge base** — Markdown + Graph + Skills (см. также [README_EN.md](./README_EN.md), [README_ZH.md](./README_ZH.md))
 
-## Структура
+Книги в PDF конвертированы в Markdown; из них собрана библиотека паттернов, корпус для ИИ-агентов и скиллы для проектирования и Spring Boot.
+
+## Структура репозитория
 
 | Путь | Назначение |
 |------|------------|
-| `*.pdf`, `spring-boot-reference.pdf` | Исходные книги и Spring Boot Reference |
-| `books-md/` | Текст после `scripts/pdf_to_md.py` (pdftotext) |
+| `aimdpedia/`, `content/`, `graph/`, `meta/` | Исходный каркас MDpedia (демо-концепты) |
 | `library/` | Каталоги паттернов, [INDEX.md](./library/INDEX.md), [INDEX.html](./library/INDEX.html) |
 | `corpus/` | Точка входа для ИИ: `AGENT-INDEX.md`, `MANIFEST.json` |
-| `mdpedia/` | Граф, concepts, копии скиллов (формат [MDpedia](https://github.com/isalnikov/MDpedia)) |
-| `.cursor/skills/system-design-patterns/` | Скилл агента Cursor |
-| `scripts/pdf_to_md.py` | Повторная конвертация PDF → MD |
+| `mdpedia/` | Корпус паттернов: граф, concepts, копии скиллов |
+| `books-md/`, `*.pdf` | Первичные тексты |
+| `.cursor/skills/` | Скиллы Cursor |
+| `scripts/` | `pdf_to_md.py`, `build-agent-corpus.py` |
 
-## Источники
+## Источники каталогов
 
-1. **Kleppmann** — *Высоконагруженные приложения* (DDIA)
-2. **Fowler** — *Шаблоны корпоративных приложений* (PEAA)
-3. **Hohpe & Woolf** — *Шаблоны интеграции корпоративных приложений* (EIP)
-4. **Medjaoui et al.** — *Непрерывное развитие API* (Continuous API Management)
-5. **Spring Boot Reference** 3.2.3 — `spring-boot-reference.pdf` → [spring-boot-decisions.md](./library/spring-boot-decisions.md)
-
-> Файл `nepreriv_razvit.pdf` — это **Continuous API Management**, не Continuous Delivery (Humble/Farley).
+1. Kleppmann — DDIA  
+2. Fowler — PEAA  
+3. Hohpe & Woolf — EIP  
+4. Medjaoui et al. — Continuous API Management  
+5. Spring Boot Reference 3.2.3 → [spring-boot-decisions.md](./library/spring-boot-decisions.md)
 
 ## Использование
 
-- Люди: [library/INDEX.html](./library/INDEX.html) или [library/INDEX.md](./library/INDEX.md).
-- ИИ-агент (любая среда): [corpus/AGENT-INDEX.md](./corpus/AGENT-INDEX.md) → [mdpedia/graph/links.json](./mdpedia/graph/links.json) → скиллы в `mdpedia/content/skills/` или `.cursor/skills/`.
-- Cursor: скиллы `system-design-patterns`, `spring-boot-expert`.
-
-Пересборка корпуса: `python3 scripts/build-agent-corpus.py`
-
-### Переконвертация книг
+- **Люди:** [library/INDEX.html](./library/INDEX.html)  
+- **ИИ-агент:** [corpus/AGENT-INDEX.md](./corpus/AGENT-INDEX.md) → [mdpedia/graph/links.json](./mdpedia/graph/links.json)  
+- **Cursor:** скиллы `system-design-patterns`, `spring-boot-expert`  
 
 ```bash
+python3 scripts/build-agent-corpus.py
 python3 scripts/pdf_to_md.py
 ```
 
-## Субагенты
+Документация формата: [mdpedia/IMPLEMENTATION_PLAN.md](./mdpedia/IMPLEMENTATION_PLAN.md), [meta/ai-hints.md](./meta/ai-hints.md).
 
-Каталоги в `library/` подготовлены отдельными агент-сессиями с разбором соответствующих `books-md/*.md`.
+## License
+
+MIT

@@ -11,6 +11,12 @@
       "file": "mdpedia/content/skills/spring-boot-expert.skill.md",
       "cursor_skill": ".cursor/skills/spring-boot-expert",
       "type": "skill"
+    },
+    {
+      "name": "sql-expert",
+      "file": "mdpedia/content/skills/sql-expert.skill.md",
+      "cursor_skill": ".cursor/skills/sql-expert",
+      "type": "skill"
     }
   ]
 }

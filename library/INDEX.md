@@ -9,6 +9,10 @@
 | [eip-patterns.md](./eip-patterns.md) | Hohpe & Woolf, *EIP* | 65 | Интеграция сообщений |
 | [api-management-patterns.md](./api-management-patterns.md) | Medjaoui et al., *Continuous API Management* | governance + lifecycle | API как продукт |
 | [spring-boot-decisions.md](./spring-boot-decisions.md) | Spring Boot Reference 3.2.3 | starters + stacks | Spring Boot «когда что» |
+| [sql/mysql-performance-patterns.md](./sql/mysql-performance-patterns.md) | Schwartz et al., *High Performance MySQL* 3rd ed. | Ch 1–11, 14, App. D | MySQL «когда что» (schema, indexes, EXPLAIN, replication) |
+| [sql/sql-recipes-and-queries.md](./sql/sql-recipes-and-queries.md) | Molinaro *SQL Cookbook*; Астахова *SQL в примерах* | recipes | JOIN, агрегаты, window, pivot, иерархии |
+| [sql/sql-fundamentals.md](./sql/sql-fundamentals.md) | Chapman, *Learning MySQL* (гл. 1–10) | basics | Типы, ER, DDL/DML |
+| [sql/sql-transactions-and-ha.md](./sql/sql-transactions-and-ha.md) | Weikum & Vossen; Bell et al. | TX + HA | ACID, 2PC, репликация, failover, backup |
 
 ## Карта стыков (где книги пересекаются)
 
@@ -39,7 +43,7 @@ flowchart LR
 ### Новый микросервис с БД
 
 1. **PEAA:** Domain Model vs Transaction Script → Service Layer → Repository/Data Mapper.
-2. **DDIA:** одна БД на сервис; секционирование по ключу; репликация leader-follower; уровень изоляции.
+2. **DDIA + sql/:** одна БД на сервис; секционирование по ключу; репликация leader-follower; уровень изоляции — см. [sql-transactions-and-ha.md](./sql/sql-transactions-and-ha.md).
 3. **EIP:** при синхронных вызовах — Request-Reply + Message Endpoint; при событиях — Publish-Subscribe + Event Message.
 4. **API:** контракт как продукт; версионирование; столпы DX и documentation.
 
@@ -69,3 +73,4 @@ rg "Problem\." library/peaa-patterns.md
 Скиллы агента:
 - [system-design-patterns](../.cursor/skills/system-design-patterns/SKILL.md)
 - [spring-boot-expert](../.cursor/skills/spring-boot-expert/SKILL.md)
+- [sql-expert](../.cursor/skills/sql-expert/SKILL.md) · SQL: [sql/INDEX.md](./sql/INDEX.md)

@@ -11,14 +11,19 @@
   ],
   "skills": [
     "mdpedia/content/skills/system-design-patterns.skill.md",
-    "mdpedia/content/skills/spring-boot-expert.skill.md"
+    "mdpedia/content/skills/spring-boot-expert.skill.md",
+    "mdpedia/content/skills/sql-expert.skill.md"
   ],
   "concepts": [
     "mdpedia/content/concepts/peaa-patterns.md",
     "mdpedia/content/concepts/ddia-patterns.md",
     "mdpedia/content/concepts/eip-patterns.md",
     "mdpedia/content/concepts/api-management-patterns.md",
-    "mdpedia/content/concepts/spring-boot-decisions.md"
+    "mdpedia/content/concepts/spring-boot-decisions.md",
+    "mdpedia/content/concepts/sql-fundamentals.md",
+    "mdpedia/content/concepts/sql-recipes.md",
+    "mdpedia/content/concepts/mysql-performance.md",
+    "mdpedia/content/concepts/sql-transactions-ha.md"
   ],
   "books_md": [
     "books-md/Kleppman_Martin_-_Vysokonagruzhennye_prilozhenia_Bestsellery_O_Reilly_-_2018.md",
@@ -27,8 +32,30 @@
     "books-md/spring-boot-reference.md",
     "books-md/Шаблоны интеграции корпоративных приложений.md"
   ],
+  "sql_books_md": [
+    "sql/books-md/High.Performance.MySQL.3rd.Edition.md",
+    "sql/books-md/Learning MySQL.md",
+    "sql/books-md/SQL-sbornik_retseptov_O_39_Reilly.md",
+    "sql/books-md/sql в примерах.md",
+    "sql/books-md/transaction.md",
+    "sql/books-md/Обеспечение высокой доступности систем на основе MySQL.md"
+  ],
+  "sql_prompts": [
+    "sql/prompts/README.md",
+    "sql/prompts/design-schema.md",
+    "sql/prompts/optimize-mysql.md",
+    "sql/prompts/review-query.md"
+  ],
+  "sql_library": [
+    "library/sql/INDEX.md",
+    "library/sql/mysql-performance-patterns.md",
+    "library/sql/sql-fundamentals.md",
+    "library/sql/sql-recipes-and-queries.md",
+    "library/sql/sql-transactions-and-ha.md"
+  ],
   "cursor_skills": [
     ".cursor/skills/system-design-patterns",
-    ".cursor/skills/spring-boot-expert"
+    ".cursor/skills/spring-boot-expert",
+    ".cursor/skills/sql-expert"
   ]
 }

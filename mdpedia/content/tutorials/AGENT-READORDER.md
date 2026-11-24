@@ -20,6 +20,10 @@ level: beginner
 | [eip-patterns.md](./eip-patterns.md) | Hohpe & Woolf, *EIP* | 65 | Интеграция сообщений |
 | [api-management-patterns.md](./api-management-patterns.md) | Medjaoui et al., *Continuous API Management* | governance + lifecycle | API как продукт |
 | [spring-boot-decisions.md](./spring-boot-decisions.md) | Spring Boot Reference 3.2.3 | starters + stacks | Spring Boot «когда что» |
+| [sql/mysql-performance-patterns.md](./sql/mysql-performance-patterns.md) | Schwartz et al., *High Performance MySQL* 3rd ed. | Ch 1–11, 14, App. D | MySQL «когда что» (schema, indexes, EXPLAIN, replication) |
+| [sql/sql-recipes-and-queries.md](./sql/sql-recipes-and-queries.md) | Molinaro *SQL Cookbook*; Астахова *SQL в примерах* | recipes | JOIN, агрегаты, window, pivot, иерархии |
+| [sql/sql-fundamentals.md](./sql/sql-fundamentals.md) | Chapman, *Learning MySQL* (гл. 1–10) | basics | Типы, ER, DDL/DML |
+| [sql/sql-transactions-and-ha.md](./sql/sql-transactions-and-ha.md) | Weikum & Vossen; Bell et al. | TX + HA | ACID, 2PC, репликация, failover, backup |
 
 ## Карта стыков (где книги пересекаются)
 
@@ -50,7 +54,7 @@ flowchart LR
 ### Новый микросервис с БД
 
 1. **PEAA:** Domain Model vs Transaction Script → Service Layer → Repository/Data Mapper.
-2. **DDIA:** одна БД на сервис; секционирование по ключу; репликация leader-follower; уровень изоляции.
+2. **DDIA + sql/:** одна БД на сервис; секционирование по ключу; репликация leader-follower; уровень изоляции — см. [sql-transactions-and-ha.md](./sql/sql-transactions-and-ha.md).
 3. **EIP:** при синхронных вызовах — Request-Reply + Message Endpoint; при событиях — Publish-Subscribe + Event Message.
 4. **API:** контракт как продукт; версионирование; столпы DX и documentation.
 
@@ -80,49 +84,52 @@ rg "Problem\." library/peaa-patterns.md
 Скиллы агента:
 - [system-design-patterns](../.cursor/skills/system-design-patterns/SKILL.md)
 - [spring-boot-expert](../.cursor/skills/spring-boot-expert/SKILL.md)
+- [sql-expert](../.cursor/skills/sql-expert/SKILL.md) · SQL: [sql/INDEX.md](./sql/INDEX.md)
 
 ## README.md
 
-# Pattern library workspace
+# MDpedia — pattern library & agent corpus
 
-Книги в PDF конвертированы в Markdown; из них собрана структурированная библиотека и скилл для проектирования.
+> **AI-first knowledge base** — Markdown + Graph + Skills (см. также [README_EN.md](./README_EN.md), [README_ZH.md](./README_ZH.md))
 
-## Структура
+Книги в PDF конвертированы в Markdown; из них собрана библиотека паттернов, корпус для ИИ-агентов и скиллы для проектирования и Spring Boot.
+
+## Структура репозитория
 
 | Путь | Назначение |
 |------|------------|
-| `*.pdf`, `spring-boot-reference.pdf` | Исходные книги и Spring Boot Reference |
-| `books-md/` | Текст после `scripts/pdf_to_md.py` (pdftotext) |
+| `aimdpedia/`, `content/`, `graph/`, `meta/` | Исходный каркас MDpedia (демо-концепты) |
 | `library/` | Каталоги паттернов, [INDEX.md](./library/INDEX.md), [INDEX.html](./library/INDEX.html) |
 | `corpus/` | Точка входа для ИИ: `AGENT-INDEX.md`, `MANIFEST.json` |
-| `mdpedia/` | Граф, concepts, копии скиллов (формат [MDpedia](https://github.com/isalnikov/MDpedia)) |
-| `.cursor/skills/system-design-patterns/` | Скилл агента Cursor |
-| `scripts/pdf_to_md.py` | Повторная конвертация PDF → MD |
+| `mdpedia/` | Корпус паттернов: граф, concepts, копии скиллов |
+| `books-md/` | Первичные тексты архитектуры (из PDF) |
+| `sql/`, `sql/books-md/`, `library/sql/` | SQL/MySQL: PDF локально, каталоги и промпты |
+| `*.pdf` | **Только локально** (в `.gitignore`, не в GitHub) |
+| `.cursor/skills/` | Скиллы Cursor |
+| `scripts/` | `pdf_to_md.py`, `build-agent-corpus.py` |
 
-## Источники
+## Источники каталогов
 
-1. **Kleppmann** — *Высоконагруженные приложения* (DDIA)
-2. **Fowler** — *Шаблоны корпоративных приложений* (PEAA)
-3. **Hohpe & Woolf** — *Шаблоны интеграции корпоративных приложений* (EIP)
-4. **Medjaoui et al.** — *Непрерывное развитие API* (Continuous API Management)
-5. **Spring Boot Reference** 3.2.3 — `spring-boot-reference.pdf` → [spring-boot-decisions.md](./library/spring-boot-decisions.md)
-
-> Файл `nepreriv_razvit.pdf` — это **Continuous API Management**, не Continuous Delivery (Humble/Farley).
+1. Kleppmann — DDIA  
+2. Fowler — PEAA  
+3. Hohpe & Woolf — EIP  
+4. Medjaoui et al. — Continuous API Management  
+5. Spring Boot Reference 3.2.3 → [spring-boot-decisions.md](./library/spring-boot-decisions.md)
 
 ## Использование
 
-- Люди: [library/INDEX.html](./library/INDEX.html) или [library/INDEX.md](./library/INDEX.md).
-- ИИ-агент (любая среда): [corpus/AGENT-INDEX.md](./corpus/AGENT-INDEX.md) → [mdpedia/graph/links.json](./mdpedia/graph/links.json) → скиллы в `mdpedia/content/skills/` или `.cursor/skills/`.
-- Cursor: скиллы `system-design-patterns`, `spring-boot-expert`.
-
-Пересборка корпуса: `python3 scripts/build-agent-corpus.py`
-
-### Переконвертация книг
+- **Люди:** [library/INDEX.html](./library/INDEX.html)  
+- **ИИ-агент:** [corpus/AGENT-INDEX.md](./corpus/AGENT-INDEX.md) → [mdpedia/graph/links.json](./mdpedia/graph/links.json)  
+- **Cursor:** скиллы `system-design-patterns`, `spring-boot-expert`, `sql-expert`  
 
 ```bash
+python3 scripts/build-agent-corpus.py
 python3 scripts/pdf_to_md.py
+python3 scripts/pdf_sql_to_md.py
 ```
 
-## Субагенты
+Документация формата: [mdpedia/IMPLEMENTATION_PLAN.md](./mdpedia/IMPLEMENTATION_PLAN.md), [meta/ai-hints.md](./meta/ai-hints.md).
 
-Каталоги в `library/` подготовлены отдельными агент-сессиями с разбором соответствующих `books-md/*.md`.
+## License
+
+MIT

@@ -25,12 +25,36 @@
       "title": "spring-boot-decisions",
       "type": "concept"
     },
+    "sql-fundamentals": {
+      "file": "mdpedia/content/concepts/sql-fundamentals.md",
+      "title": "sql-fundamentals",
+      "type": "concept"
+    },
+    "sql-recipes": {
+      "file": "mdpedia/content/concepts/sql-recipes.md",
+      "title": "sql-recipes",
+      "type": "concept"
+    },
+    "mysql-performance": {
+      "file": "mdpedia/content/concepts/mysql-performance.md",
+      "title": "mysql-performance",
+      "type": "concept"
+    },
+    "sql-transactions-ha": {
+      "file": "mdpedia/content/concepts/sql-transactions-ha.md",
+      "title": "sql-transactions-ha",
+      "type": "concept"
+    },
     "system-design-patterns": {
       "file": "mdpedia/content/skills/system-design-patterns.skill.md",
       "type": "skill"
     },
     "spring-boot-expert": {
       "file": "mdpedia/content/skills/spring-boot-expert.skill.md",
+      "type": "skill"
+    },
+    "sql-expert": {
+      "file": "mdpedia/content/skills/sql-expert.skill.md",
       "type": "skill"
     }
   },
@@ -94,11 +118,52 @@
       "from": "spring-boot-decisions",
       "to": "api-management-patterns",
       "relation": "relates"
+    },
+    {
+      "from": "sql-expert",
+      "to": "sql-fundamentals",
+      "relation": "uses"
+    },
+    {
+      "from": "sql-expert",
+      "to": "sql-recipes",
+      "relation": "uses"
+    },
+    {
+      "from": "sql-expert",
+      "to": "mysql-performance",
+      "relation": "uses"
+    },
+    {
+      "from": "sql-expert",
+      "to": "sql-transactions-ha",
+      "relation": "uses"
+    },
+    {
+      "from": "sql-expert",
+      "to": "ddia-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "sql-expert",
+      "to": "spring-boot-decisions",
+      "relation": "relates"
+    },
+    {
+      "from": "mysql-performance",
+      "to": "sql-transactions-ha",
+      "relation": "relates"
+    },
+    {
+      "from": "sql-recipes",
+      "to": "sql-fundamentals",
+      "relation": "requires"
     }
   ],
   "agent_flow": [
     "Если задача = архитектура / паттерны / микросервисы: corpus/AGENT-INDEX.md → skill:system-design-patterns → concepts по INDEX.md",
     "Если задача = Spring Boot стек / starters / тесты: corpus/AGENT-INDEX.md → skill:spring-boot-expert → spring-boot-decisions",
-    "Если нужна первичка: books-md/*.md (полные книги и spring-boot-reference)"
+    "Если нужна первичка: books-md/*.md (архитектура); sql/books-md/*.md (SQL, локальные PDF)",
+    "Если задача = SQL / MySQL: corpus/AGENT-INDEX.md → skill:sql-expert → library/sql/ + sql/prompts/"
   ]
 }

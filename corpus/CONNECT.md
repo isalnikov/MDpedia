@@ -22,6 +22,13 @@
 
 `mdpedia/content/concepts/*.md` — frontmatter MDpedia + дословный фрагмент из `library/*.md`.
 
-## Первичка
+## SQL
+
+- Скилл: `mdpedia/content/skills/sql-expert.skill.md`
+- Гиды: `library/sql/`, concepts `sql-*` в `mdpedia/content/concepts/`
+- Промпты: `sql/prompts/`
+- Первичка: `sql/books-md/` (PDF только локально)
+
+## Первичка (архитектура)
 
 `books-md/*.md` — полные тексты из PDF (см. `MANIFEST.json` → `books_md`).

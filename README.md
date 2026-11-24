@@ -12,7 +12,8 @@
 | `library/` | Каталоги паттернов, [INDEX.md](./library/INDEX.md), [INDEX.html](./library/INDEX.html) |
 | `corpus/` | Точка входа для ИИ: `AGENT-INDEX.md`, `MANIFEST.json` |
 | `mdpedia/` | Корпус паттернов: граф, concepts, копии скиллов |
-| `books-md/` | Первичные тексты (из PDF) |
+| `books-md/` | Первичные тексты архитектуры (из PDF) |
+| `sql/`, `sql/books-md/`, `library/sql/` | SQL/MySQL: PDF локально, каталоги и промпты |
 | `*.pdf` | **Только локально** (в `.gitignore`, не в GitHub) |
 | `.cursor/skills/` | Скиллы Cursor |
 | `scripts/` | `pdf_to_md.py`, `build-agent-corpus.py` |
@@ -29,11 +30,12 @@
 
 - **Люди:** [library/INDEX.html](./library/INDEX.html)  
 - **ИИ-агент:** [corpus/AGENT-INDEX.md](./corpus/AGENT-INDEX.md) → [mdpedia/graph/links.json](./mdpedia/graph/links.json)  
-- **Cursor:** скиллы `system-design-patterns`, `spring-boot-expert`  
+- **Cursor:** скиллы `system-design-patterns`, `spring-boot-expert`, `sql-expert`  
 
 ```bash
 python3 scripts/build-agent-corpus.py
 python3 scripts/pdf_to_md.py
+python3 scripts/pdf_sql_to_md.py
 ```
 
 Документация формата: [mdpedia/IMPLEMENTATION_PLAN.md](./mdpedia/IMPLEMENTATION_PLAN.md), [meta/ai-hints.md](./meta/ai-hints.md).

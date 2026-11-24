@@ -19,14 +19,22 @@ CONCEPTS = [
     ("eip-patterns", ROOT / "library/eip-patterns.md", ["eip", "integration", "messaging"]),
     ("api-management-patterns", ROOT / "library/api-management-patterns.md", ["api", "governance"]),
     ("spring-boot-decisions", ROOT / "library/spring-boot-decisions.md", ["spring-boot", "java"]),
+    ("sql-fundamentals", ROOT / "library/sql/sql-fundamentals.md", ["sql", "mysql", "ddl"]),
+    ("sql-recipes", ROOT / "library/sql/sql-recipes-and-queries.md", ["sql", "queries"]),
+    ("mysql-performance", ROOT / "library/sql/mysql-performance-patterns.md", ["mysql", "performance"]),
+    ("sql-transactions-ha", ROOT / "library/sql/sql-transactions-and-ha.md", ["sql", "transactions", "ha"]),
 ]
 
 SKILLS = [
     ("system-design-patterns", ROOT / ".cursor/skills/system-design-patterns"),
     ("spring-boot-expert", ROOT / ".cursor/skills/spring-boot-expert"),
+    ("sql-expert", ROOT / ".cursor/skills/sql-expert"),
 ]
 
 BOOKS_MD = sorted((ROOT / "books-md").glob("*.md")) if (ROOT / "books-md").exists() else []
+SQL_BOOKS_MD = (
+    sorted((ROOT / "sql/books-md").glob("*.md")) if (ROOT / "sql/books-md").exists() else []
+)
 
 LEVEL_BY_NAME = {
     "peaa-patterns": "intermediate",
@@ -34,6 +42,10 @@ LEVEL_BY_NAME = {
     "eip-patterns": "intermediate",
     "api-management-patterns": "intermediate",
     "spring-boot-decisions": "intermediate",
+    "sql-fundamentals": "beginner",
+    "sql-recipes": "intermediate",
+    "mysql-performance": "advanced",
+    "sql-transactions-ha": "advanced",
 }
 
 
@@ -146,6 +158,14 @@ def build_graph(concept_files: list[tuple[str, Path]]) -> dict:
         ("spring-boot-decisions", "peaa-patterns", "relates"),
         ("spring-boot-decisions", "eip-patterns", "relates"),
         ("spring-boot-decisions", "api-management-patterns", "relates"),
+        ("sql-expert", "sql-fundamentals", "uses"),
+        ("sql-expert", "sql-recipes", "uses"),
+        ("sql-expert", "mysql-performance", "uses"),
+        ("sql-expert", "sql-transactions-ha", "uses"),
+        ("sql-expert", "ddia-patterns", "relates"),
+        ("sql-expert", "spring-boot-decisions", "relates"),
+        ("mysql-performance", "sql-transactions-ha", "relates"),
+        ("sql-recipes", "sql-fundamentals", "requires"),
     ]
     for a, b, rel in skill_edges:
         if a not in nodes and a in {s[0] for s in SKILLS}:
@@ -159,7 +179,8 @@ def build_graph(concept_files: list[tuple[str, Path]]) -> dict:
     agent_flow = [
         "Если задача = архитектура / паттерны / микросервисы: corpus/AGENT-INDEX.md → skill:system-design-patterns → concepts по INDEX.md",
         "Если задача = Spring Boot стек / starters / тесты: corpus/AGENT-INDEX.md → skill:spring-boot-expert → spring-boot-decisions",
-        "Если нужна первичка: books-md/*.md (полные книги и spring-boot-reference)",
+        "Если нужна первичка: books-md/*.md (архитектура); sql/books-md/*.md (SQL, локальные PDF)",
+        "Если задача = SQL / MySQL: corpus/AGENT-INDEX.md → skill:sql-expert → library/sql/ + sql/prompts/",
     ]
     return {"nodes": nodes, "edges": edges, "agent_flow": agent_flow}
 
@@ -195,6 +216,9 @@ def write_agent_index() -> None:
         "skills": [f"mdpedia/content/skills/{n}.skill.md" for n, _ in SKILLS],
         "concepts": [f"mdpedia/content/concepts/{s[0]}.md" for s in CONCEPTS],
         "books_md": [str(p.relative_to(ROOT)) for p in BOOKS_MD],
+        "sql_books_md": [str(p.relative_to(ROOT)) for p in SQL_BOOKS_MD],
+        "sql_prompts": [str(p.relative_to(ROOT)) for p in sorted((ROOT / "sql/prompts").glob("*.md"))],
+        "sql_library": [str(p.relative_to(ROOT)) for p in sorted((ROOT / "library/sql").glob("*.md"))],
         "cursor_skills": [str((ROOT / ".cursor/skills" / n).relative_to(ROOT)) for n, _ in SKILLS],
     }
     (CORPUS / "MANIFEST.json").write_text(

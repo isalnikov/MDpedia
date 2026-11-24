@@ -7,7 +7,7 @@ title: Context routing
 ### Новый микросервис с БД
 
 1. **PEAA:** Domain Model vs Transaction Script → Service Layer → Repository/Data Mapper.
-2. **DDIA:** одна БД на сервис; секционирование по ключу; репликация leader-follower; уровень изоляции.
+2. **DDIA + sql/:** одна БД на сервис; секционирование по ключу; репликация leader-follower; уровень изоляции — см. [sql-transactions-and-ha.md](./sql/sql-transactions-and-ha.md).
 3. **EIP:** при синхронных вызовах — Request-Reply + Message Endpoint; при событиях — Publish-Subscribe + Event Message.
 4. **API:** контракт как продукт; версионирование; столпы DX и documentation.
 
@@ -37,3 +37,4 @@ rg "Problem\." library/peaa-patterns.md
 Скиллы агента:
 - [system-design-patterns](../.cursor/skills/system-design-patterns/SKILL.md)
 - [spring-boot-expert](../.cursor/skills/spring-boot-expert/SKILL.md)
+- [sql-expert](../.cursor/skills/sql-expert/SKILL.md) · SQL: [sql/INDEX.md](./sql/INDEX.md)

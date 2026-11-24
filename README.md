@@ -12,7 +12,8 @@
 | `library/` | Каталоги паттернов, [INDEX.md](./library/INDEX.md), [INDEX.html](./library/INDEX.html) |
 | `corpus/` | Точка входа для ИИ: `AGENT-INDEX.md`, `MANIFEST.json` |
 | `mdpedia/` | Корпус паттернов: граф, concepts, копии скиллов |
-| `books-md/`, `*.pdf` | Первичные тексты |
+| `books-md/` | Первичные тексты (из PDF) |
+| `*.pdf` | **Только локально** (в `.gitignore`, не в GitHub) |
 | `.cursor/skills/` | Скиллы Cursor |
 | `scripts/` | `pdf_to_md.py`, `build-agent-corpus.py` |
 

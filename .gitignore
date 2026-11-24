@@ -1,3 +1,6 @@
+# PDF — только локально, не коммитить
+*.pdf
+
 .DS_Store
 __pycache__/
 *.py[cod]

@@ -1,0 +1,34 @@
+{
+  "root": "/home/igor/cursorwork/patterns",
+  "entry_points": [
+    "corpus/AGENT-INDEX.md",
+    "corpus/CONNECT.md",
+    "mdpedia/meta/ai-hints.md",
+    "mdpedia/meta/distiller_prompt.txt",
+    "mdpedia/graph/links.json",
+    "library/INDEX.md",
+    "library/INDEX.html"
+  ],
+  "skills": [
+    "mdpedia/content/skills/system-design-patterns.skill.md",
+    "mdpedia/content/skills/spring-boot-expert.skill.md"
+  ],
+  "concepts": [
+    "mdpedia/content/concepts/peaa-patterns.md",
+    "mdpedia/content/concepts/ddia-patterns.md",
+    "mdpedia/content/concepts/eip-patterns.md",
+    "mdpedia/content/concepts/api-management-patterns.md",
+    "mdpedia/content/concepts/spring-boot-decisions.md"
+  ],
+  "books_md": [
+    "books-md/Kleppman_Martin_-_Vysokonagruzhennye_prilozhenia_Bestsellery_O_Reilly_-_2018.md",
+    "books-md/Martin_Fauler_quot_Shablony_korporativnykh_prilozheny_quot.md",
+    "books-md/nepreriv_razvit.md",
+    "books-md/spring-boot-reference.md",
+    "books-md/Шаблоны интеграции корпоративных приложений.md"
+  ],
+  "cursor_skills": [
+    ".cursor/skills/system-design-patterns",
+    ".cursor/skills/spring-boot-expert"
+  ]
+}

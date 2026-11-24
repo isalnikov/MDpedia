@@ -1,0 +1,16 @@
+{
+  "skills": [
+    {
+      "name": "system-design-patterns",
+      "file": "mdpedia/content/skills/system-design-patterns.skill.md",
+      "cursor_skill": ".cursor/skills/system-design-patterns",
+      "type": "skill"
+    },
+    {
+      "name": "spring-boot-expert",
+      "file": "mdpedia/content/skills/spring-boot-expert.skill.md",
+      "cursor_skill": ".cursor/skills/spring-boot-expert",
+      "type": "skill"
+    }
+  ]
+}

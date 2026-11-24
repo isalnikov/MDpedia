@@ -1,0 +1,104 @@
+{
+  "nodes": {
+    "peaa-patterns": {
+      "file": "mdpedia/content/concepts/peaa-patterns.md",
+      "title": "peaa-patterns",
+      "type": "concept"
+    },
+    "ddia-patterns": {
+      "file": "mdpedia/content/concepts/ddia-patterns.md",
+      "title": "ddia-patterns",
+      "type": "concept"
+    },
+    "eip-patterns": {
+      "file": "mdpedia/content/concepts/eip-patterns.md",
+      "title": "eip-patterns",
+      "type": "concept"
+    },
+    "api-management-patterns": {
+      "file": "mdpedia/content/concepts/api-management-patterns.md",
+      "title": "api-management-patterns",
+      "type": "concept"
+    },
+    "spring-boot-decisions": {
+      "file": "mdpedia/content/concepts/spring-boot-decisions.md",
+      "title": "spring-boot-decisions",
+      "type": "concept"
+    },
+    "system-design-patterns": {
+      "file": "mdpedia/content/skills/system-design-patterns.skill.md",
+      "type": "skill"
+    },
+    "spring-boot-expert": {
+      "file": "mdpedia/content/skills/spring-boot-expert.skill.md",
+      "type": "skill"
+    }
+  },
+  "edges": [
+    {
+      "from": "system-design-patterns",
+      "to": "peaa-patterns",
+      "relation": "uses"
+    },
+    {
+      "from": "system-design-patterns",
+      "to": "ddia-patterns",
+      "relation": "uses"
+    },
+    {
+      "from": "system-design-patterns",
+      "to": "eip-patterns",
+      "relation": "uses"
+    },
+    {
+      "from": "system-design-patterns",
+      "to": "api-management-patterns",
+      "relation": "uses"
+    },
+    {
+      "from": "spring-boot-expert",
+      "to": "spring-boot-decisions",
+      "relation": "uses"
+    },
+    {
+      "from": "spring-boot-expert",
+      "to": "system-design-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "peaa-patterns",
+      "to": "ddia-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "peaa-patterns",
+      "to": "eip-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "ddia-patterns",
+      "to": "eip-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "spring-boot-decisions",
+      "to": "peaa-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "spring-boot-decisions",
+      "to": "eip-patterns",
+      "relation": "relates"
+    },
+    {
+      "from": "spring-boot-decisions",
+      "to": "api-management-patterns",
+      "relation": "relates"
+    }
+  ],
+  "agent_flow": [
+    "Если задача = архитектура / паттерны / микросервисы: corpus/AGENT-INDEX.md → skill:system-design-patterns → concepts по INDEX.md",
+    "Если задача = Spring Boot стек / starters / тесты: corpus/AGENT-INDEX.md → skill:spring-boot-expert → spring-boot-decisions",
+    "Если нужна первичка: books-md/*.md (полные книги и spring-boot-reference)"
+  ]
+}
